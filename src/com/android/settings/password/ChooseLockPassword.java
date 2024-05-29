@@ -115,6 +115,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ChooseLockPassword extends SettingsActivity {
     private static final String TAG = "ChooseLockPassword";
@@ -931,11 +932,43 @@ public class ChooseLockPassword extends SettingsActivity {
             return false;
         }
 
+    String[] convertErrorCodeToMessages() {
+        var pvec = new PasswordValidationErrorConverter(getContext(), mIsAlphaMode, mValidationErrors);
+        String[] res = pvec.convertErrorCodeToMessages(this::isSupervisingProfile);
+        mIsErrorTooShort = pvec.mIsErrorTooShort;
+        return res;
+    }
+
+    public static class PasswordValidationErrorConverter {
+        private final Context mContext;
+        private final boolean mIsAlphaMode;
+        private final List<PasswordValidationError> mValidationErrors;
+        public boolean mIsErrorTooShort = true;
+
+        public PasswordValidationErrorConverter(Context context, boolean isAlphaMode,
+                              List<PasswordValidationError> validationErrors) {
+            mContext = context;
+            mIsAlphaMode = isAlphaMode;
+            mValidationErrors = validationErrors;
+        }
+
+        private Context getContext() {
+            return mContext;
+        }
+
+        private String getString(int id) {
+            return mContext.getString(id);
+        }
+
+        public String[] convertErrorCodeToMessages() {
+            return convertErrorCodeToMessages(() -> false);
+        }
+
         /**
          * @param errorCode error code returned from password validation.
          * @return an array of messages describing the error, important messages come first.
          */
-        String[] convertErrorCodeToMessages() {
+        String[] convertErrorCodeToMessages(Supplier<Boolean> isSupervisingProfileSupplier) {
             List<String> messages = new ArrayList<>();
             mIsErrorTooShort = false;
             for (PasswordValidationError error : mValidationErrors) {
@@ -973,7 +1006,7 @@ public class ChooseLockPassword extends SettingsActivity {
                         break;
                     case TOO_SHORT:
                         mIsErrorTooShort = true;
-                        boolean isSupervisingProfile = isSupervisingProfile();
+                        boolean isSupervisingProfile = isSupervisingProfileSupplier.get();
                         String message = StringUtil.getIcuPluralsString(getContext(),
                                 error.requirement,
                                 mIsAlphaMode
@@ -1029,6 +1062,7 @@ public class ChooseLockPassword extends SettingsActivity {
 
             return messages.toArray(new String[0]);
         }
+    }
 
         /**
          * Update the hint based on current Stage and length of password entry
