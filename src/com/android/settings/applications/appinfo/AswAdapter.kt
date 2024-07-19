@@ -27,9 +27,15 @@ abstract class AswAdapter<T : AppSwitch>(val context: Context, val userId: Int =
 
     abstract fun getAswTitle(): CharSequence
 
-    fun getDefaultTitle(isOn: Boolean): CharSequence {
-        return context.getString(R.string.aep_default,
-            if (isOn) getOnTitle() else getOffTitle())
+    fun getDefaultTitle(isOn: Boolean, isOneTime: Boolean = false): CharSequence {
+        val subtext = if (isOneTime && isOneTimeSupported()) {
+            getOneTimeTitle()
+        } else if (isOn) {
+            getOnTitle()
+        } else {
+            getOffTitle()
+        }
+        return context.getString(R.string.aep_default, subtext)
     }
 
     open fun getOnTitle(): CharSequence = getText(R.string.aep_enabled)

@@ -61,7 +61,7 @@ public abstract class AswAppInfoFragment<T extends AppSwitch>
 
         List<Entry> entries = new ArrayList<>();
 
-        var def = createEntry(ID_DEFAULT, adapter.getDefaultTitle(defaultValue));
+        var def = createEntry(ID_DEFAULT, adapter.getDefaultTitle(defaultValue, isOneTimeChecked));
         entries.add(def);
         def.isChecked = isDefault;
         def.isEnabled = !isImmutable;
