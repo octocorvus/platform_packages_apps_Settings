@@ -1487,7 +1487,7 @@ public class FingerprintSettings extends SubSettings {
             } else if (requestCode == BIOMETRIC_SECOND_FACTOR_PIN_CHOOSE_REQUEST) {
                 mLaunchedBiometricSecondFactorPinActivity = false;
                 // This technique of relying on the launched Activity to indicate timeout isn't
-                // perfect. If an app calls finish() for something other than RESULT_TIMEOUT, butAdd commentMore actions
+                // perfect. If an app calls finish() for something other than RESULT_TIMEOUT, but
                 // the app is in background, then on returning to foreground there will be no
                 // RESULT_TIMEOUT. This is easily seen by adding a sleep(1000ms) before the finish()
                 // call and going to background during this time.
