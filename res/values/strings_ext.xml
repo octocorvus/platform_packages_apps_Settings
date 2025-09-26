@@ -77,6 +77,27 @@ Examples of such apps:
 This setting applies to all users on the device."
     </string>
 
+    <string name="Google_apps_special_device_identifiers_access_title">Special access to device identifiers for Google apps</string>
+    <string name="Google_apps_special_device_identifiers_access_summary_granted">Access granted</string>
+    <string name="Google_apps_special_device_identifiers_access_summary_not_granted">Access not granted</string>
+    <string name="Google_apps_special_device_identifiers_access_main_switch">Grant special access to device identifiers to Google apps</string>
+    <string name="Google_apps_special_device_identifiers_access_footer">
+"Some Google apps expect to be able to access device identifiers for carrier functionality such as RCS.
+
+Examples of such apps:
+• Google Play Services
+• Google Messages
+
+Enabling this setting will allow the above apps to access device identifiers such as:
+• IMEI / MEID
+• Phone Number (MSISDN)
+• IMSI (Subscriber ID)
+• ICCID (SIM serial)
+• EID (eSIM identifier)
+
+This setting applies to only the main user on the device."
+    </string>
+
     <string name="pref_gnss_psds_title">Predicted Satellite Data Service (PSDS)</string>
     <string name="gnss_psds_footer">
 "If PSDS is turned on, static PSDS information files will be downloaded periodically to improve location resolution speed and accuracy.
