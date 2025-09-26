@@ -95,7 +95,7 @@ Enabling this setting will allow the above apps to access device identifiers suc
 • ICCID (SIM serial)
 • EID (eSIM identifier)
 
-This setting applies to only the main user on the device."
+This setting applies only to the main user on the device."
     </string>
 
     <string name="pref_gnss_psds_title">Predicted Satellite Data Service (PSDS)</string>
