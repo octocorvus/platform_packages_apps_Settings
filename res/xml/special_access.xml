@@ -237,4 +237,10 @@
         android:title="@string/Google_apps_special_accelerator_access_title"
         android:fragment="com.android.settings.applications.specialaccess.GoogleSpecialAcceleratorAccessFragment"
         settings:controller="com.android.settings.applications.specialaccess.GoogleSpecialAcceleratorAccessPrefController" />
+
+    <Preference
+        android:key="Google_apps_special_device_identifiers_access"
+        android:title="\@string/Google_apps_special_device_identifiers_access_title"
+        android:fragment="com.android.settings.applications.specialaccess.GoogleSpecialDeviceIdentifiersAccessFragment"
+        settings:controller="com.android.settings.applications.specialaccess.GoogleSpecialDeviceIdentifiersAccessPrefController" />
 </PreferenceScreen>
