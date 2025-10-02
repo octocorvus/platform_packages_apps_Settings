@@ -46,6 +46,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.android.settings.R
+import com.android.settings.network.telephony.carriersettingsoverride.CarrierSettingsOverridesViewModel.MessageType
 import com.android.settingslib.spa.framework.common.SettingsPageProvider
 import com.android.settingslib.spa.framework.theme.SettingsDimension
 import com.android.settingslib.spa.widget.dialog.SettingsDialog
@@ -63,7 +64,6 @@ import com.android.settingslib.spa.widget.ui.SettingsIcon
 import com.android.settingslib.spaprivileged.model.enterprise.Restrictions
 import com.android.settingslib.spaprivileged.template.preference.RestrictedMainSwitchPreference
 import com.android.settingslib.spaprivileged.template.preference.RestrictedPreference
-import com.android.settings.network.telephony.carriersettingsoverride.CarrierSettingsOverridesViewModel.MessageType
 
 private const val SUB_ID_FOR_OVERRIDE = "subId"
 
