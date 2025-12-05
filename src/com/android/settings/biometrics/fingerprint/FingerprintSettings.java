@@ -980,10 +980,6 @@ public class FingerprintSettings extends SubSettings {
                 updatePreferenceVisibility(status, mScreenOffUnlockUdfpsPreference);
             }
 
-            final int categoryStatus =
-                    mFingerprintUnlockCategoryPreferenceController.getAvailabilityStatus();
-            updatePreferenceVisibility(categoryStatus, mFingerprintUnlockCategory);
-
             if (mBiometricSecondFactorPinPreferenceController != null) {
                 mBiometricSecondFactorPinPreferenceController.updateState(mBiometricSecondFactorPin);
             }
