@@ -115,6 +115,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ChooseLockPassword extends SettingsActivity {
     private static final String TAG = "ChooseLockPassword";
@@ -941,7 +942,7 @@ public class ChooseLockPassword extends SettingsActivity {
 
     String[] convertErrorCodeToMessages() {
         var pvec = new PasswordValidationErrorConverter(getContext(), mIsAlphaMode, mValidationErrors);
-        String[] res = pvec.convertErrorCodeToMessages();
+        String[] res = pvec.convertErrorCodeToMessages(this::isSupervisingProfile);
         mIsErrorTooShort = pvec.mIsErrorTooShort;
         return res;
     }
@@ -967,11 +968,15 @@ public class ChooseLockPassword extends SettingsActivity {
             return mContext.getString(id);
         }
 
+        public String[] convertErrorCodeToMessages() {
+            return convertErrorCodeToMessages(() -> false);
+        }
+
         /**
          * @param errorCode error code returned from password validation.
          * @return an array of messages describing the error, important messages come first.
          */
-        public String[] convertErrorCodeToMessages() {
+        String[] convertErrorCodeToMessages(Supplier<Boolean> isSupervisingProfileSupplier) {
             List<String> messages = new ArrayList<>();
             mIsErrorTooShort = false;
             for (PasswordValidationError error : mValidationErrors) {
@@ -1009,7 +1014,7 @@ public class ChooseLockPassword extends SettingsActivity {
                         break;
                     case TOO_SHORT:
                         mIsErrorTooShort = true;
-                        boolean isSupervisingProfile = isSupervisingProfile();
+                        boolean isSupervisingProfile = isSupervisingProfileSupplier.get();
                         String message = StringUtil.getIcuPluralsString(getContext(),
                                 error.requirement,
                                 mIsAlphaMode
