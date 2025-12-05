@@ -48,7 +48,6 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.android.settings.R
 import com.android.settings.network.telephony.carriersettingsoverride.CarrierSettingsOverridesViewModel.MessageType
-import com.android.settings.spa.network.CollectAirplaneModeAndFinishIfOn
 import com.android.settingslib.spa.framework.common.SettingsPageProvider
 import com.android.settingslib.spa.framework.theme.SettingsDimension
 import com.android.settingslib.spa.widget.dialog.SettingsDialog
@@ -88,8 +87,6 @@ object CarrierSettingsOverridesProvider : SettingsPageProvider {
 
         val isOverrideInProgress by viewModel.isOverrideInProgress.collectAsStateWithLifecycle()
         val isOverrideActive by viewModel.isAnOverrideActive.collectAsStateWithLifecycle()
-
-        CollectAirplaneModeAndFinishIfOn()
 
         RegularScaffold(title = stringResource(R.string.carrier_settings_override_gos_title)) {
             TopIntroPreference(model = object : TopIntroPreferenceModel {
