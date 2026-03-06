@@ -110,6 +110,17 @@
             android:summary="@string/screenshot_timestamp_exif_summary"
             settings:boolSettingField="android.ext.settings.ExtSettings SCREENSHOT_TIMESTAMP_EXIF"/>
 
+        <Preference
+            android:key="app_clipboard_read"
+            android:title="@string/app_clipboard_read_title"
+            android:fragment="com.android.settings.applications.AppDefaultClipboardReadFragment"
+            settings:controller="com.android.settings.applications.AppDefaultClipboardReadPrefController" />
+
+        <Preference
+            android:key="app_clipboard_read_app_list"
+            android:title="@string/app_clipboard_read_title"
+            settings:controller="com.android.settings.applications.ClipboardReadAppListPrefController" />
+
         <!-- Allow software fallback for camera extensions -->
         <SwitchPreferenceCompat
             android:key="privacy_camera_extensions_fallback"
