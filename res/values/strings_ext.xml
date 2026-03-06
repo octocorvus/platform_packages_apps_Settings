@@ -322,4 +322,32 @@ May cause unreliable service. Use at your own risk.
     <string name="carrier_settings_override_wfc_availability_enabled_roaming_not_editable">Available but roaming not editable</string>
     <string name="carrier_settings_override_cross_sim">Cross SIM calling / backup calling availability</string>
     <string name="carrier_settings_override_cross_sim_description">Only for dual SIM setups. If enabled, then when the SIM is roaming or out of service and Wi‑Fi isn\’t available, calls can be made over another SIM’s data connection. Wi-Fi calling should be set to available to use this.</string>
+
+    <string name="app_clipboard_read_title">Clipboard access</string>
+    <string name="app_default_clipboard_read_summary_allowed">Apps can read the clipboard by default</string>
+    <string name="app_default_clipboard_read_summary_blocked">Apps are blocked from reading the clipboard by default</string>
+    <string name="app_default_clipboard_read_main_switch_title">Allow apps to read the clipboard</string>
+    <string name="app_default_clipboard_read_main_switch_summary">When on, apps can read the clipboard unless you block them</string>
+    <string name="app_default_clipboard_read_footer">"Warning: Blocking access to the clipboard may cause some apps to stop working.
+
+Control whether third-party apps can read content you copy to the clipboard, such as text, images, and links.
+
+When this setting is on, apps can read clipboard content while in use unless you block them individually.
+
+When this setting is off, apps are blocked from reading clipboard content by default. You can still allow access for specific apps.
+
+Some apps and system features, such as your default input method, can always read the clipboard regardless of this setting."</string>
+    <string name="app_clipboard_read_allowed">Allowed</string>
+    <string name="app_clipboard_read_blocked">Blocked</string>
+    <string name="app_clipboard_read_dvr_default_setting">Follow system clipboard access setting</string>
+    <string name="app_clipboard_read_ir_is_system_app">This setting does not apply to system apps</string>
+    <string name="app_clipboard_read_ir_is_default_ime">Your default input method always has clipboard access</string>
+    <string name="app_clipboard_read_footer">"Warning: Blocking access to the clipboard may cause this app to stop working.
+
+Control whether this app can read content you copy to the clipboard, such as text, images, and links.
+
+When allowed, this app can read clipboard content while in use.
+
+When blocked, this app is prevented from reading clipboard content."</string>
+
 </resources>
